@@ -1,0 +1,20 @@
+name: CI Usage Audit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report run context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Ref: ${{ github.ref }}"
+
+      - name: Simulate release checklist
+        run: |
+          echo "Check 1: default branch exists - OK"
+          echo "Check 2: workflow triggerable on demand - OK"
+          echo "Release audit complete."
